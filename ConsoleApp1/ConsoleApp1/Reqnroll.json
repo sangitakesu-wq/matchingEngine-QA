@@ -1,0 +1,6 @@
+{
+  "NRetrySettings": {
+    "MaxRetries": 2,
+    "applyGlobally": true
+  }
+}

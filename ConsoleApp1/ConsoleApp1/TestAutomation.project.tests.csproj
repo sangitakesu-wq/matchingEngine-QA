@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <!-- Prevent Selenium.WebDriver.ChromeDriver package from copying chromedriver.exe into output (can be locked by running driver processes) -->
+  <PropertyGroup>
+    <ChromeDriverCopyToOutput>false</ChromeDriverCopyToOutput>
+  </PropertyGroup>
+  <!-- Kill any running chromedriver.exe processes before build to avoid file lock when copying driver -->
+  <Target Name="KillChromeDriverProcesses" BeforeTargets="BeforeBuild">
+    <Exec Command="taskkill /F /IM chromedriver.exe" ContinueOnError="true" />
+  </Target>
+  <ItemGroup>
+    <None Include="Pages\BasePage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="151.0.7922.13800" />
+    <PackageReference Include="SpecFlow" Version="3.9.74" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.11.0" />
+    <!-- Removed explicit ChromeDriver package so Selenium Manager (included in Selenium.WebDriver 4.11+) can auto-download the correct driver for the installed Chrome version -->
+    <PackageReference Include="Selenium.Support" Version="4.11.0" />
+    <PackageReference Include="ExtentReports" Version="4.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Config\appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>appsettings.json</TargetPath>
+    </None>
+  </ItemGroup>
+
+</Project>

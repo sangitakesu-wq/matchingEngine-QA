@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+*.nupkg
+packages/
+
+# Test results
+TestResults/
+*.trx
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# ChromeDriver
+chromedriver.exe
+
+# SpecFlow generated files
+**/*.feature.cs
+
+# macOS
+.DS_Store
+
+# other
+*.log
