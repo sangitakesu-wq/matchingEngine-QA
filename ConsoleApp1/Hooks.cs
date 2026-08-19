@@ -1,9 +1,7 @@
-using System;
-using System.IO;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace TestAutomation.project.tests
 {

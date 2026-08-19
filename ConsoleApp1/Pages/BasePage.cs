@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace TestAutomation.project.tests.Pages
